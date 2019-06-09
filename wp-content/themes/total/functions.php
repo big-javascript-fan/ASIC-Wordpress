@@ -186,6 +186,20 @@ function total_widgets_init() {
 		'after_title'   => '</h4>',
 	) );
 }
+
+add_action('admin_menu', 'tutsplus_admin_menu');
+
+function tutsplus_admin_menu() {
+	add_submenu_page(
+		'options-general.php',
+		'tutsplus-admin-menu',
+		'Tuts+ Options',
+		'manage_options',
+		'tutsplus-admin-menu-top',
+		'tutsplus_admin_options'
+	);
+}
+
 add_action( 'widgets_init', 'total_widgets_init' );
 
 if ( ! function_exists( 'total_fonts_url' ) ) :
